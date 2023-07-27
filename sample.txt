@@ -1,0 +1,9 @@
+// manage image relationship - this part can be ignored
+  const articles = data.data;
+  articles.forEach(article => {
+    const imageRelation = article.relationships.field_media_image.data;
+    if(imageRelation){
+      const imageId = imageRelation.id
+      const imageObject = data.included.
+    }
+  })
