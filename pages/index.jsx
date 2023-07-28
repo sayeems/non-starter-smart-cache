@@ -1,5 +1,6 @@
 import Layout from "@/components/layout";
 import Image from "next/image";
+import Link from "next/link";
 export default function Home({ articles }) {
   return (
     <Layout>
@@ -18,7 +19,9 @@ export default function Home({ articles }) {
                 layout="responsive"
                 className="my-0 w-full"
               />
-              <h4 className="mt-0 p-2">{article.title}</h4>
+              <h4 className="mt-0 p-2">
+                <Link href={`/${article.id}`}>{article.title}</Link>
+              </h4>
             </div>
           );
         })}
@@ -34,7 +37,7 @@ export async function getServerSideProps({ req, res }) {
     "Cache-Control",
     "public, s-maxage=3000, stale-while-revalidate=600"
   );
-  const backend = `https://dev-non-starter-kit-smart-cache-27-jul-2023.pantheonsite.io`;
+  const backend = `https://live-non-starter-kit-smart-cache-27-jul-2023.pantheonsite.io`;
   const sourcePath = `/en/jsonapi/node/article?fields[node--article]=uid,title,changed,field_media_image&include=field_media_image,field_media_image.thumbnail`;
 
   // fetch data from CMS
