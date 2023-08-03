@@ -48,7 +48,7 @@ import { NextResponse } from "next/server";
 export function middleware(req) {
   let whiteListedIP = ["127.0.0.1", "27.147.202.14"];
   let ip = req.headers.get("x-forwarded-for");
-  console.log(ip);
+  console.log(`IP is: ${ip}`);
   const matchIP = whiteListedIP.find((e) => e == ip);
   if (!matchIP) {
     return new NextResponse("Access Denied!", {
