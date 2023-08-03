@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 
-const BASIC_USER = "sayeem";
-const BASIC_PASS = "sayeem123";
+const [BASIC_USER, BASIC_PASS] = (process.env.HTTP_BASIC_AUTH || ":").split(
+  ":"
+);
 
 // Check if authenticated
 export function middleware(req) {
