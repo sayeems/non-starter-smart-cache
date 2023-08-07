@@ -46,7 +46,7 @@ import { NextResponse } from "next/server";
 // IP checklist
 
 export function middleware(req) {
-  let whiteListedIP = ["127.0.0.1", "27.147.202.14"];
+  let whiteListedIP = ["127.0.0.1", "ip-list"];
   let ip = req.headers.get("x-forwarded-for");
   console.log(`IP is: ${ip}`);
   const matchIP = whiteListedIP.find((e) => e == ip);
