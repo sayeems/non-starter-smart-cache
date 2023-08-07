@@ -31,6 +31,7 @@ export default function Home({ articles }) {
 }
 
 // SSR
+//trivial change
 export async function getServerSideProps({ req, res }) {
   // cache control header
   res.setHeader(
