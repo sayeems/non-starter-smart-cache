@@ -46,20 +46,9 @@ import { NextResponse } from "next/server";
 // IP checklist
 
 export function middleware(req) {
-  let whiteListedIP = ["127.0.0.1"];
-  let ip = req.ip ?? req.headers.get("x-real-ip");
-  let forwardedFor = req.headers.get("x-forwarded-for");
-  // console.log(`IP is: ${ip}`);
-  if (!ip && forwardedFor) {
-    ip = forwardedFor.split(",").at(0) ?? "Unknown";
-  }
-  console.log(`IP is: ${ip}`);
-  console.log(`forwarded for: ${forwardedFor}`);
-  // const matchIP = whiteListedIP.find((e) => e == ip);
-  // if (!matchIP) {
-  //   return new NextResponse("Access Denied!", {
-  //     status: 403,
-  //   });
-  // }
+  let origin = req.headers.get("origin");
+  let host = req.headers.get("host");
+  console.log(`Origin is: ${origin} and host is: ${host}`);
+
   return NextResponse.next();
 }
