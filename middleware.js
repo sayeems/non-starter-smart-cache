@@ -46,9 +46,8 @@ import { NextResponse } from "next/server";
 // IP checklist
 
 export function middleware(req) {
-  let origin = req.headers.get("origin");
   let host = req.headers.get("host");
-  console.log(`Origin is: ${origin} and host is: ${host}`);
+  console.log(`host is: ${host}`);
 
   return NextResponse.next();
 }
